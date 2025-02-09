@@ -1,0 +1,30 @@
+.button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.button-primary {
+  background-color: #212121;
+  color: #fff;
+}
+
+/* Outlined secondary button style */
+.button-secondary {
+  background-color: transparent;
+  color: #212121;
+  border: 2px solid #212121;
+}
+
+/* Smaller button style for card buttons */
+.cards-list .button {
+  padding: 5px 10px; /* Smaller padding */
+  font-size: 12px; /* Smaller font size */
+}
+
+.employeeEditForm .button {
+  padding: 5px 10px !important; /* Smaller padding */
+  font-size: 12px !important; /* Smaller font size */
+}

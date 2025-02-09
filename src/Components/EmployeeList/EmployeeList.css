@@ -1,0 +1,27 @@
+.cards-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+  padding: 16px;
+  background: linear-gradient(135deg, #0f172a, #1e293b); /* Deep blue gradient */
+  border-radius: 8px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5); /* Stronger depth */
+  transition: all 0.3s ease-in-out;
+}
+
+/* Neon glow effect on hover */
+.cards-list:hover {
+  background: linear-gradient(135deg, #1e293b, #0f172a);
+  box-shadow: 0px 0px 20px rgba(0, 153, 255, 0.6); /* Blue glow effect */
+}
+
+/* Optional: Add a glowing card effect */
+.cards-list > * {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cards-list > *:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 0px 12px rgba(0, 255, 128, 0.6); /* Green glow effect */
+}

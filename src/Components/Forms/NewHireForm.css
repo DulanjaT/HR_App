@@ -1,0 +1,23 @@
+.formContent {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    justify-self: center;
+  }
+  
+  input {
+    height: 40px;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: lightgray;
+    border-style: none;
+    color: black;
+  }
+  
+  label {
+    color: black;
+    display: flex;
+    justify-self: start;
+    margin-top: 20px;
+  }
+  

@@ -1,0 +1,22 @@
+p {
+  color: #222; /* Slightly darker for better contrast */
+  font-size: 16px; /* Ensure readability */
+  line-height: 1.5; /* Improve text spacing */
+  transition: color 0.3s ease-in-out;
+}
+
+/* Optional: If the paragraph needs to stick to the bottom */
+.footer-text {
+  position: fixed; /* or absolute, depending on layout */
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.05); /* Soft background */
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+/* Subtle hover effect */
+p:hover {
+  color: #007bff; /* Soft blue hover effect */
+}

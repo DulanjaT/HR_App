@@ -1,0 +1,85 @@
+.home-page {
+  padding: 20px;
+  background-color: #f4f4f4; /* Soft light gray */
+  color: #333; /* Dark gray for better readability */
+}
+
+/* Welcome banner */
+.welcome-banner {
+  background-color: #1e3a8a; /* Deep blue */
+  color: #ffffff;
+  padding: 40px;
+  text-align: center;
+  border-radius: 8px;
+}
+
+/* Dashboard Section */
+.dashboard-section {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+/* Dashboard Cards */
+.dashboard-card {
+  flex: 1;
+  background-color: #ffffff; /* White background */
+  padding: 20px;
+  margin: 0 10px;
+  text-align: center;
+  border: 1px solid #ddd; /* Light gray border */
+  border-radius: 8px;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  transition: transform 0.2s ease-in-out;
+}
+
+/* Card hover effect */
+.dashboard-card:hover {
+  transform: translateY(-5px); /* Slight lift effect */
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Dashboard card text */
+.dashboard-card p {
+  color: #444;
+  font-weight: 600;
+}
+
+/* Quick Links */
+.quick-links {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+/* Buttons */
+.button {
+  background-color: #2563eb; /* Softer blue */
+  color: white;
+  padding: 12px 24px;
+  border-radius: 5px;
+  text-decoration: none;
+  text-align: center;
+  display: inline-block;
+  width: 30%;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+/* Button Hover */
+.button:hover {
+  background-color: #1e40af; /* Darker blue */
+}
+
+/* Headings */
+h2 {
+  margin-bottom: 16px;
+  font-size: 1.8rem;
+  color: #1e3a8a; /* Deep blue */
+}
+
+/* General Paragraph Styling */
+p {
+  font-size: 16px;
+  color: #555; /* Medium gray */
+}
