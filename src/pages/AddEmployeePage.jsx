@@ -13,7 +13,7 @@ const AddEmployeePage = () => {
 
     try {
       const response = await fetch(
-        "https://mock-api-hgn0.onrender.com/api/employees",
+        "https://hr-app-backend-a7ec.onrender.com/employees",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },

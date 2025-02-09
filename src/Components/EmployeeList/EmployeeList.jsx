@@ -10,7 +10,7 @@ const EmployeeList = () => {
     const fetchEmployees = async () => {
       try {
         const response = await fetch(
-          "https://mock-api-hgn0.onrender.com/api/employees"
+          "https://hr-app-backend-a7ec.onrender.com/employees"
         );
         const data = await response.json();
         setEmployees(data);
@@ -34,7 +34,7 @@ const EmployeeList = () => {
 
   const deleteEmployee = async (id) => {
     try {
-      await fetch(`https://mock-api-hgn0.onrender.com/api/employees/${id}`, {
+      await fetch(`https://hr-app-backend-a7ec.onrender.com/employees/${id}`, {
         method: "DELETE",
       });
       setEmployees((prev) => prev.filter((employee) => employee.id !== id));
