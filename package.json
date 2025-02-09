@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "rollup -c rollup.config.js --no-cache",
     "lint": "eslint .",
     "preview": "vite preview",
     "start": "json-server --watch db.json --port 3000"
