@@ -1,5 +1,5 @@
-import EmployeeList from "./components/EmployeeList/EmployeeList";
-import Button from "../components/Button/Button";
+import EmployeeList from "../Components/EmployeeList/EmployeeList";
+import Button from "../Components/Button/Button";
 import { useNavigate } from "react-router-dom";
 
 function EmployeesPage() {
