@@ -1,1 +1,76 @@
-[{"employees": []}]
+{
+  "employees": [
+    {
+      "id": 1,
+      "name": "Olivia Bennett",
+      "department": "Finance",
+      "salary": 8200,
+      "initialRole": "Chief Financial Officer",
+      "startDate": "2010-05-12",
+      "location": "Espoo"
+    },
+    {
+      "id": 2,
+      "name": "Ethan Reynolds",
+      "department": "Human Resources",
+      "salary": 5400,
+      "initialRole": "HR Manager",
+      "startDate": "2016-09-20",
+      "location": "Tampere"
+    },
+    {
+      "id": 3,
+      "name": "Sophia Carter",
+      "department": "Marketing",
+      "salary": 6100,
+      "initialRole": "Brand Strategist",
+      "startDate": "2019-03-15",
+      "location": "Vantaa"
+    },
+    {
+      "id": 4,
+      "name": "Liam Anderson",
+      "department": "Engineering",
+      "salary": 7300,
+      "initialRole": "Software Engineer",
+      "startDate": "2017-07-08",
+      "location": "Helsinki"
+    },
+    {
+      "id": 5,
+      "name": "Ava Mitchell",
+      "department": "Sales",
+      "salary": 8900,
+      "initialRole": "Sales Director",
+      "startDate": "2015-11-30",
+      "location": "Turku"
+    },
+    {
+      "id": 6,
+      "name": "Mason Wright",
+      "department": "Operations",
+      "salary": 9400,
+      "initialRole": "Logistics Manager",
+      "startDate": "2021-01-22",
+      "location": "Oulu"
+    },
+    {
+      "id": 7,
+      "name": "Isabella Scott",
+      "department": "Customer Support",
+      "salary": 4700,
+      "initialRole": "Support Specialist",
+      "startDate": "2022-06-05",
+      "location": "Jyväskylä"
+    },
+    {
+      "id": 8,
+      "name": "Noah Harris",
+      "department": "Research & Development",
+      "salary": 10500,
+      "initialRole": "R&D Lead",
+      "startDate": "2013-12-10",
+      "location": "Kuopio"
+    }
+  ]
+}
