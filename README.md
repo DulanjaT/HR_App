@@ -1,3 +1,5 @@
+[![Quality gate](http://localhost:8889/api/project_badges/quality_gate?project=my_sonarproject_2&token=sqb_54cfdd327fb362ad18f33edf59eea2a2665aad3f)](http://localhost:8889/dashboard?id=my_sonarproject_2)
+
 # HR Application
 
 This HR Application is designed to practice React development. The app includes the following key functionalities:
@@ -40,4 +42,4 @@ To run server:
 
 Backend is deployed using render.com and being used as a mock api to handle data. Fronend is deployed using AWS amplify!
 
-[![Quality Gate Status](http://localhost:8889/api/project_badges/measure?project=my_sonarproject_2&metric=alert_status&token=sqb_54cfdd327fb362ad18f33edf59eea2a2665aad3f)](http://localhost:8889/dashboard?id=my_sonarproject_2)
+
