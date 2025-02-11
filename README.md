@@ -41,5 +41,3 @@ To run server:
 ## Deployment
 
 Backend is deployed using render.com and being used as a mock api to handle data. Fronend is deployed using AWS amplify!
-
-
