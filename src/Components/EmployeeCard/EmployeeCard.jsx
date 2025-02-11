@@ -11,47 +11,38 @@ function EmployeeCard(props) {
   const [isEditing, setIsEditing] = useState(false);
   const navigate = useNavigate();
 
-  const startEditing = () => {
-    setIsEditing(true);
+  const handleEditClick = () => setIsEditing(true);
+
+  const handleViewEmployee = () => {
+    navigate(`/app/EmployeePage/${props.id}`, {
+      state: {
+        id: props.id,
+        name: props.name,
+        department: props.department,
+        salary: props.salary,
+        initialRole: props.initialRole,
+        location: props.location,
+        startDate: props.startDate,
+        thumbnailUrl: `https://robohash.org/${props.id}.png?set=set5&size=200x200`,
+      },
+    });
   };
 
-  const viewEmployeeDetails = () => {
-    const employeeData = {
-      id: props.id,
-      name: props.name,
-      department: props.department,
-      salary: props.salary,
-      initialRole: props.initialRole,
-      location: props.location,
-      startDate: props.startDate,
-      thumbnailUrl: `https://robohash.org/${props.id}.png?set=set5&size=200x200`,
-    };
-
-    navigate(`/app/EmployeePage/${props.id}`, { state: employeeData });
-  };
-
-  const saveUpdates = (updatedData) => {
+  const handleSave = (updatedData) => {
     setRole(updatedData.role);
     props.onSave(props.id, updatedData);
     setIsEditing(false);
   };
 
-  const cancelEditing = () => {
-    setIsEditing(false);
-  };
+  const handleCancel = () => setIsEditing(false);
 
-  const togglePromotion = () => {
-    if (isPromoted) {
-      setRole(props.initialRole);
-      setIsPromoted(false);
-    } else {
-      setRole("Team Lead");
-      setIsPromoted(true);
-    }
+  const clickHandler = () => {
+    setRole(isPromoted ? props.initialRole : "Team Lead");
+    setIsPromoted(!isPromoted);
   };
 
   const formatStartDate = () => {
-    const start = new Date(props.startDate);
+    const startDate = new Date(props.startDate);
     const monthNames = [
       "Jan",
       "Feb",
@@ -66,22 +57,18 @@ function EmployeeCard(props) {
       "Nov",
       "Dec",
     ];
-    const month = monthNames[start.getMonth()];
-    const year = start.getFullYear();
-    return `${month}/${year}`;
+    return `${monthNames[startDate.getMonth()]}/${startDate.getFullYear()}`;
   };
 
-  const yearsAtCompany = () => {
+  const yearsWorked = () => {
     const today = new Date();
-    const start = new Date(props.startDate);
-    let years = today.getFullYear() - start.getFullYear();
-    let months = today.getMonth() - start.getMonth();
-
+    const startDate = new Date(props.startDate);
+    let years = today.getFullYear() - startDate.getFullYear();
+    let months = today.getMonth() - startDate.getMonth();
     if (months < 0) {
       years--;
       months += 12;
     }
-
     return years === 0
       ? `${months} months`
       : months === 0
@@ -89,93 +76,87 @@ function EmployeeCard(props) {
       : `${years} years and ${months} months`;
   };
 
-  const isAnniversaryToday = () => {
+  const isAnniversary = () => {
     const today = new Date();
-    const start = new Date(props.startDate);
+    const startDate = new Date(props.startDate);
     return (
-      today.getMonth() === start.getMonth() &&
-      today.getDate() === start.getDate()
+      today.getMonth() === startDate.getMonth() &&
+      today.getDate() === startDate.getDate()
     );
   };
 
-  const probationReviewStatus = (probationPeriodMonths = 3) => {
+  const hasProbationReviewComingUp = (probationPeriodMonths = 3) => {
     const today = new Date();
-    const start = new Date(props.startDate);
-    const monthsDifference =
-      (today.getFullYear() - start.getFullYear()) * 12 +
-      (today.getMonth() - start.getMonth());
-
-    if (monthsDifference === probationPeriodMonths) {
-      return "Probation review this month!";
-    } else if (monthsDifference === probationPeriodMonths - 1) {
-      return "Probation review next month!";
-    }
-    return "";
+    const startDate = new Date(props.startDate);
+    const totalMonthsDifference =
+      (today.getFullYear() - startDate.getFullYear()) * 12 +
+      (today.getMonth() - startDate.getMonth());
+    return totalMonthsDifference === probationPeriodMonths
+      ? "Probation review this month!"
+      : totalMonthsDifference === probationPeriodMonths - 1
+      ? "Probation review next month!"
+      : "";
   };
 
-  const handleDelete = () => {
-    props.onDelete(props.id);
-  };
+  const handleDelete = () => props.onDelete(props.id);
 
   const departmentClass = `card card-${
     props.department?.trim().toLowerCase().replace(/\s+/g, "-") || "default"
   }`;
 
   return (
-    <>
-      <div className={departmentClass}>
-        <h3 className="card-title">{props.name}</h3>
-        <img
-          src={`https://robohash.org/${props.id}.png?set=set5&size=200x200`}
-          alt={`${props.name}'s avatar`}
-          className="thumbnail"
-        />
-        <ul className="card-content">
-          <li>Role: {role}</li>
-          <li>Department: {props.department}</li>
-          <li>Salary: {props.salary} €</li>
-          <li>Started: {formatStartDate()}</li>
-          <li>In company for: {yearsAtCompany()}</li>
-          <li>
-            {isAnniversaryToday() && (
-              <span style={{ color: "green", fontWeight: "bold" }}>
-                🎉 Work Anniversary Today!
-              </span>
-            )}
-          </li>
-          <li>
-            {probationReviewStatus(3) && (
-              <span style={{ color: "orange", fontWeight: "bold" }}>
-                💬 {probationReviewStatus(3)}
-              </span>
-            )}
-          </li>
-        </ul>
-        {!isEditing ? (
-          <div className="cardButtonRow">
-            <Button text="View" click={viewEmployeeDetails} variant="primary" />
-            <Button text="Edit" click={startEditing} variant="primary" />
-            <Button
-              text={isPromoted ? "Demote" : "Promote"}
-              click={togglePromotion}
-              variant={isPromoted ? "secondary" : "primary"}
-            />
-            <Button text={"Delete"} click={handleDelete} variant="secondary" />
-          </div>
-        ) : (
-          <div className="editFormContainer">
-            <Form
-              role={role}
-              department={props.department}
-              salary={props.salary}
-              onSave={saveUpdates}
-              location={props.location}
-              onCancel={cancelEditing}
-            />
-          </div>
-        )}
-      </div>
-    </>
+    <div className={departmentClass}>
+      <h3 className="card-title">{props.name}</h3>
+      <img
+        src={`https://robohash.org/${props.id}.png?set=set5&size=200x200`}
+        alt={`${props.name}'s avatar`}
+        className="thumbnail"
+      />
+      <ul className="card-content">
+        <li>Role: {role}</li>
+        <li>Department: {props.department}</li>
+        <li>Salary: {props.salary} €</li>
+        <li>Started: {formatStartDate()}</li>
+        <li>In company for: {yearsWorked()}</li>
+        <li>
+          {isAnniversary() && (
+            <span style={{ color: "green", fontWeight: "bold" }}>
+              🎉 Anniversary Celebration Today!
+            </span>
+          )}
+        </li>
+        <li>
+          {hasProbationReviewComingUp(3) && (
+            <span style={{ color: "orange", fontWeight: "bold" }}>
+              💬 {hasProbationReviewComingUp(3)}
+            </span>
+          )}
+        </li>
+      </ul>
+      {!isEditing ? (
+        <div className="cardButtonRow">
+          <Button text="View" click={handleViewEmployee} variant="primary" />
+          <Button text="Edit" click={handleEditClick} variant="primary" />
+          <Button
+            text={isPromoted ? "Demote" : "Promote"}
+            click={clickHandler}
+            variant={isPromoted ? "secondary" : "primary"}
+          />
+          <Button text="Delete" click={handleDelete} variant="secondary" />
+        </div>
+      ) : (
+        <div className="editFormContainer">
+          <Form
+            role={role}
+            department={props.department}
+            salary={props.salary}
+            onSave={handleSave}
+            location={props.location}
+            onCancel={handleCancel}
+          />
+        </div>
+      )}
+    </div>
   );
 }
 
