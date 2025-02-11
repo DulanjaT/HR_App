@@ -40,4 +40,4 @@ To run server:
 
 Backend is deployed using render.com and being used as a mock api to handle data. Fronend is deployed using AWS amplify!
 
-[![Quality gate](http://localhost:8889/api/project_badges/quality_gate?project=my_sonarproject_1&token=sqb_7614b2023ddb99a442b7054fd280d8c856ca8feb)](http://localhost:8889/dashboard?id=my_sonarproject_1)
+
