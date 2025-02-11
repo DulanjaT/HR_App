@@ -39,3 +39,5 @@ To run server:
 ## Deployment
 
 Backend is deployed using render.com and being used as a mock api to handle data. Fronend is deployed using AWS amplify!
+
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=DulanjaT_HR_App&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=DulanjaT_HR_App)
